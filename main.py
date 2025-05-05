@@ -55,15 +55,15 @@ age = 0; hunger = 5; boredom = 3; sleepiness = 3
 
 ####----Task 2----####
 Petoo_McShmetto = Pet("Petoo McShmetto", age, hunger, boredom, sleepiness)
-e = input("What do yuo want to do?")
+e = input("What do yuo want to do? (Feed, Play, Sleep, Wait, exit)")
 while e != "exit":
-    if e == "feed":
+    if e.lower() == "feed":
         Petoo_McShmetto.Feed()
-    elif e == "play":
+    elif e.lower() == "play":
         Petoo_McShmetto.Play()
-    elif e == "sleep":
+    elif e.lower() == "sleep":
         Petoo_McShmetto.Sleep()
-    elif e == "wait":
+    elif e.lower() == "wait":
         Petoo_McShmetto.Wait()
     else:
         print("Invalid command.")
