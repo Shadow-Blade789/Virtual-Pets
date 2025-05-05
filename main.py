@@ -48,6 +48,8 @@ class Pet():
             print(f"{self.name} is dead.")
         else:
             print(f"{self.name} is alive.")
+    def __str__(self):
+        return f"Pet Name: {self.name}, Age: {self.age}, Hunger: {self.hunger}, Boredom: {self.boredom}, Sleepiness: {self.sleepiness}, Dead: {self.dead}"
         
 ####----Task 1----####
 #Set up your pet with the following attributes:
