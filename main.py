@@ -1,15 +1,18 @@
 class Pet():
-    def __init__(self):
-        self.dead = False
-
+    def __init__(self, name, age, hunger, boredom, sleepiness):
+        self.dead = False; self.name = name; self.age = age; self.hunger = hunger; self.boredom = boredom; self.sleepiness = sleepiness
+    def Feed():
+        
 ####----Task 1----####
 #Set up your pet with the following attributes:
-#name (make this mandatory), age (default:0), hunger (default: 5), boredom (default:3), sleepiness(default:3)
+age = 0; hunger = 5; boredom = 3; sleepiness = 3
 
 ####----Task 2----####
-#instantiate your pet object with the name of your choice
+Petoo_McShmetto = Pet("Petoo McShmetto", age, hunger, boredom, sleepiness)
+print(Petoo_McShmetto.age)
 
 ####----Task 3----#### 
+
 # We need to add the following methods to our Virtual Pet:
 # 1. Feed - which will reduce hunger by 3
 # use a selection to make sure if hunger goes below zero it gets reset to 0 (we don’t want any negative numbers.)
