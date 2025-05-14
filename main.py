@@ -1,3 +1,4 @@
+import csv
 import random
 
 class Pet():
@@ -63,13 +64,39 @@ class Pet():
             print(self._Pet__private_art2)
         elif self._Pet__private_age > 10:
             print(self._Pet__private_art3)
+    def Evolution(self):
+        with open('evolutions.csv', 'r') as file:
+            reader = csv.reader(file)
+            evolutions = [row[0] for row in reader]
+        random_evolution = random.choice(evolutions)
+        while random_evolution == 1:
+            random_evolution = random.choice(evolutions)
+        print(f"Random evolution: {random_evolution}")
+        name = random_evolution[1]; Type_1 = random_evolution[2]; Type_2 = random_evolution[3]; Hp = random_evolution[5]; Attack,Defense,Sp_Atk,Sp_Def,Speed,Generation,Legendary = random_evolution[6],random_evolution[7],random_evolution[8],random_evolution[9],random_evolution[10],random_evolution[11],random_evolution[12]
+        self._Pet__private_name = f"{random_evolution}" + self._Pet__private_name
+
+        print(f"Random evolution: {name}")
+        self._Pet__private_name = f"{name}" + self._Pet__private_name
+        print(f"New name: {self._Pet__private_name}")
+        print(f"New Attack: {Attack}")
+        print(f"New Defense: {Defense}")
+        print(f"New Special Attack: {Sp_Atk}")
+        print(f"New Special Defense: {Sp_Def}")
+        print(f"New Speed: {Speed}")
+        print(f"New Generation: {Generation}")
+        print(f"New Legendary: {Legendary}")
+        print(f"New Type_1: {Type_1}")
+        print(f"New Type_2: {Type_2}")
+        print(f"New Hp: {Hp}")
 ####----Task 1----####
+#how can i access the second column of a line in the csv file evolutions.csv?
+
 #Set up your pet with the following attributes:
 age = 0; hunger = 5; boredom = 3; sleepiness = 3
 
 ####----Task 2----####
 Petoo_McShmetto = Pet("Petoo McShmetto", age, hunger, boredom, sleepiness)
-e = input("What do yuo want to do? (Feed, Play, Sleep, Wait, exit)")
+e = input("What do you want to do? (Feed, Play, Sleep, Wait, exit)")
 while e != "exit":
     if e.lower() == "feed":
         Petoo_McShmetto.Checkart()
@@ -83,6 +110,8 @@ while e != "exit":
     elif e.lower() == "wait":
         Petoo_McShmetto.Checkart()
         Petoo_McShmetto.Wait()
+    elif e.lower() == "evolution":
+        Petoo_McShmetto.Evolution()
     else:
         print("Invalid command.")
     Petoo_McShmetto.check_death()
