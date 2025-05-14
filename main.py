@@ -2,55 +2,67 @@ import random
 
 class Pet():
     def __init__(self, name, age, hunger, boredom, sleepiness):
-        self.dead = False; self.name = name; self.age = age; self.hunger = hunger; self.boredom = boredom; self.sleepiness = sleepiness
+        self._Pet__private_dead = False; self._Pet__private_name = name; self._Pet__private_age = age; self._Pet__private_hunger = hunger; self._Pet__private_boredom = boredom; self._Pet__private_sleepiness = sleepiness; self._Pet__private_art1 = "  / \__\n (    @\___\n /         O\n/   (_____/\n/_____/ U\n"; self._Pet__private_art2 = "   /^ ^\\n  / 0 0 \ \n /   Y   \\n V\__|__/V\n   /   \\n  ||___||\n (__/ \__)"; self._Pet__private_art3 = r = '''    ___
+ __/_  `.  .-"""-.
+ \_,` | \-'  /   )`-')
+  "") `"`    \  ((`"`
+ ___Y  ,    .'7 /|
+(_,___/...-` (_/_/
+'''
     def Feed(self):
-        if self.dead == False:
-            self.hunger -= 3
-            if self.hunger < 0:
-                self.hunger = 0
-            print(f"{self.name} has been fed. Hunger is now {self.hunger}.")
+        if self._Pet__private_dead == False:
+            self._Pet__private_hunger -= 3
+            if self._Pet__private_hunger < 0:
+                self._Pet__private_hunger = 0
+            print(f"{self._Pet__private_name} has been fed. Hunger is now {self._Pet__private_hunger}.")
         else:
-            print(f"{self.name} is dead and cannot be fed.")
+            print(f"{self._Pet__private_name} is dead and cannot be fed.")
     def Play(self):
-        if self.dead == False:
-            self.boredom -= 3
-            if self.boredom < 0:
-                self.boredom = 0
-            print(f"{self.name} has played. Boredom is now {self.boredom}.")
+        if self._Pet__private_dead == False:
+            self._Pet__private_boredom -= 3
+            if self._Pet__private_boredom < 0:
+                self._Pet__private_boredom = 0
+            print(f"{self._Pet__private_name} has played. Boredom is now {self._Pet__private_boredom}.")
         else:
-            print(f"{self.name} is dead and cannot play.")
+            print(f"{self._Pet__private_name} is dead and cannot play.")
     def Sleep(self):
-        if self.dead == False:
-            self.sleepiness -= 5
-            if self.sleepiness < 0:
-                self.sleepiness = 0
-            print(f"{self.name} has slept. Sleepiness is now {self.sleepiness}.")
+        if self._Pet__private_dead == False:
+            self._Pet__private_sleepiness -= 5
+            if self._Pet__private_sleepiness < 0:
+                self._Pet__private_sleepiness = 0
+            print(f"{self._Pet__private_name} has slept. Sleepiness is now {self._Pet__private_sleepiness}.")
         else:
-            print(f"{self.name} is dead and cannot sleep.")
+            print(f"{self._Pet__private_name} is dead and cannot sleep.")
     def Wait(self):
-        if self.dead == False:
-            self.age += 1
-            self.hunger += 1
-            if self.hunger > 10:
-                self.hunger = 10
-            self.boredom += 1
-            if self.boredom > 10:
-                self.boredom = 10
-            self.sleepiness += 1
-            if self.sleepiness > 10:
-                self.sleepiness = 10
-            print(f"{self.name} has waited. Age is now {self.age}, Hunger is now {self.hunger}, Boredom is now {self.boredom}, Sleepiness is now {self.sleepiness}.")
+        if self._Pet__private_dead == False:
+            self._Pet__private_age += 1
+            self._Pet__private_hunger += 1
+            if self._Pet__private_hunger > 10:
+                self._Pet__private_hunger = 10
+            self._Pet__private_boredom += 1
+            if self._Pet__private_boredom > 10:
+                self._Pet__private_boredom = 10
+            self._Pet__private_sleepiness += 1
+            if self._Pet__private_sleepiness > 10:
+                self._Pet__private_sleepiness = 10
+            print(f"{self._Pet__private_name} has waited. Age is now {self._Pet__private_age}, Hunger is now {self._Pet__private_hunger}, Boredom is now {self._Pet__private_boredom}, Sleepiness is now {self._Pet__private_sleepiness}.")
         else:
-            print(f"{self.name} is dead and cannot wait.")
+            print(f"{self._Pet__private_name} is dead and cannot wait.")
     def check_death(self):
-        if self.boredom >= 10 or self.sleepiness >= 10 or self.hunger >= 10 or self.age == random.randint(15, 20):
-            self.dead = True
-            print(f"{self.name} is dead.")
+        if self._Pet__private_boredom >= 10 or self._Pet__private_sleepiness >= 10 or self._Pet__private_hunger >= 10 or self._Pet__private_age == random.randint(15, 20):
+            self._Pet__private_dead = True
+            print(f"{self._Pet__private_name} is dead.")
         else:
-            print(f"{self.name} is alive.")
+            print(f"{self._Pet__private_name} is alive.")
     def __str__(self):
-        return f"Pet Name: {self.name}, Age: {self.age}, Hunger: {self.hunger}, Boredom: {self.boredom}, Sleepiness: {self.sleepiness}, Dead: {self.dead}"
-        
+        return f"Pet Name: {self._Pet__private_name}, Age: {self._Pet__private_age}, Hunger: {self._Pet__private_hunger}, Boredom: {self._Pet__private_boredom}, Sleepiness: {self._Pet__private_sleepiness}, Dead: {self._Pet__private_dead}"
+    def Checkart(self):
+        if self._Pet__private_age <= 5:
+            print(self._Pet__private_art1)
+        elif self._Pet__private_age > 5 and self._Pet__private_age <= 10:
+            print(self._Pet__private_art2)
+        elif self._Pet__private_age > 10:
+            print(self._Pet__private_art3)
 ####----Task 1----####
 #Set up your pet with the following attributes:
 age = 0; hunger = 5; boredom = 3; sleepiness = 3
@@ -60,12 +72,16 @@ Petoo_McShmetto = Pet("Petoo McShmetto", age, hunger, boredom, sleepiness)
 e = input("What do yuo want to do? (Feed, Play, Sleep, Wait, exit)")
 while e != "exit":
     if e.lower() == "feed":
+        Petoo_McShmetto.Checkart()
         Petoo_McShmetto.Feed()
     elif e.lower() == "play":
+        Petoo_McShmetto.Checkart()
         Petoo_McShmetto.Play()
     elif e.lower() == "sleep":
+        Petoo_McShmetto.Checkart()
         Petoo_McShmetto.Sleep()
     elif e.lower() == "wait":
+        Petoo_McShmetto.Checkart()
         Petoo_McShmetto.Wait()
     else:
         print("Invalid command.")
@@ -77,11 +93,12 @@ while e != "exit":
 
 ####---Task 5----####
 #make it so that the feed, sleep, play and wait will check if the pet
-#is dead before you upadate those properties.
+#is dead before you update those properties.
+
+
 
 ####---Task 6----####
 #Use Python's predefined __str__ method to produce a string output
 #for your pet. refer to page 4 of the tutorial if you don't know
 #what I'm talking about.
-
 #Go to page 9 of the tutorial to learn how to make the mainline (https://classroom.google.com/w/NzE2NTQ0NzA2MTYx/t/all)
